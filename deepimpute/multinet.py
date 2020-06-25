@@ -5,7 +5,8 @@ import numpy as np
 from scipy.stats import pearsonr
 
 import keras
-from keras import backend as K
+#from keras import backend as K
+import keras.backend.tensorflow_backend as K
 from keras.models import Model,model_from_json
 from keras.layers import Dense,Dropout,Input
 from keras.callbacks import EarlyStopping
