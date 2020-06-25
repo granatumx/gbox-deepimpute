@@ -165,7 +165,7 @@ class MultiNet:
         norm_data = np.log1p(raw).astype(np.float32) # normalizer.transform(raw)
 
         np.random.seed(self.seed)
-        tf.set_random_seed(self.seed)
+        tf.random.set_seed(self.seed)
         
         config = tf.ConfigProto(intra_op_parallelism_threads=self.ncores,
                                 inter_op_parallelism_threads=self.ncores,
