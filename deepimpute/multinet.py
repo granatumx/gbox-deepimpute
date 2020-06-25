@@ -171,7 +171,7 @@ class MultiNet:
                                 inter_op_parallelism_threads=self.ncores,
                                 use_per_session_threads=True,
                                 allow_soft_placement=True, device_count = {'CPU': self.ncores})
-        session = tf.Session(config=config)
+        session = tf.compat.v1.Session(config=config)
         K.set_session(session)
 
         print("Building network")
