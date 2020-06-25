@@ -167,7 +167,7 @@ class MultiNet:
         np.random.seed(self.seed)
         tf.random.set_seed(self.seed)
         
-        config = tf.ConfigProto(intra_op_parallelism_threads=self.ncores,
+        config = tf.compat.v1.ConfigProto(intra_op_parallelism_threads=self.ncores,
                                 inter_op_parallelism_threads=self.ncores,
                                 use_per_session_threads=True,
                                 allow_soft_placement=True, device_count = {'CPU': self.ncores})
