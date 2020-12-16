@@ -1,7 +1,9 @@
-FROM gbox-py-sdk:1.0.0
+FROM granatumx/gbox-py-sdk:1.0.0
 MAINTAINER "Cedric Arisdakessian" cedric.arisdakessian@gmail.com
 
 WORKDIR /usr/src/app
+
+RUN pip install numpy==1.18.5
 
 COPY ./requirements.txt .
 RUN pip install --no-cache-dir -r ./requirements.txt
@@ -15,6 +17,6 @@ COPY ./matplotlibrc /root/.config/matplotlib/matplotlibrc
 COPY . .
 
 RUN ./GBOXtranslateVERinYAMLS.sh
-RUN tar zcvf /gbox.tgz package.yaml yamls/*.yaml
+RUN tar zcvf /gbox.tgz package.yaml
 
 CMD [ "python", "./greet.py" ]
